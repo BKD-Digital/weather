@@ -1,0 +1,13 @@
+html {
+  background-color: $light-grey;
+  font-family: $default-font;
+}
+body {
+  font-size: 14px;
+}
+
+.app-container {
+  border-radius: 4px;
+  background-color: $white;
+  padding: 10px 20px;
+}

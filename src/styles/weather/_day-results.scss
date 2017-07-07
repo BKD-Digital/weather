@@ -1,0 +1,26 @@
+.day-results {
+  &__temp {
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    font-size: 52px;
+    margin: 0;
+  }
+  &__icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  &__description {
+    text-transform: capitalize;
+    font-size: 22px;
+    margin: 10px 0 0;
+    padding: 0;
+  }
+  .fa-thermometer-three-quarters {
+    position: relative;
+    transform: translateY(-15%);
+    font-size: 38px;
+    padding-left: 10px;
+  }
+}
