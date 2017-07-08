@@ -1,4 +1,4 @@
-import { GET_WEATHER } from "../actions/actionTypes"
+import { GET_WEATHER, INVALID_ZIP } from "../actions/actionTypes"
 
 export default function(state = {}, action) {
   switch (action.type) {
@@ -6,6 +6,11 @@ export default function(state = {}, action) {
       // console.log(`Here's my data:`, action.payload)
       return Object.assign({}, state, {
         weather: action.payload
+      })
+
+    case INVALID_ZIP:
+      return Object.assign({}, state, {
+        error: true
       })
 
     default:

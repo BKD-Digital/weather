@@ -1,4 +1,3 @@
-import { Thermometer } from "react-feather"
 import React, { Component } from "react"
 
 class DayResults extends Component {

@@ -7,7 +7,16 @@ body {
 }
 
 .app-container {
-  border-radius: 4px;
-  background-color: $white;
-  padding: 10px 20px;
+  height: 100vh;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  &__content {
+    @include border();
+    @include box-shadow-bottom();
+    border-radius: 4px;
+    background-color: $white;
+    padding: 10px 20px;
+    width: 100%;
+  }
 }

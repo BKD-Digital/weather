@@ -4,7 +4,7 @@ import WeatherReducer from "./weather"
 const initialState = {
   loading: false,
   zipCode: null,
-  userEmail: null
+  error: false
 }
 
 const rootReducer = combineReducers({

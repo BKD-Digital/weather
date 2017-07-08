@@ -1,4 +1,4 @@
-import { GET_WEATHER } from "./actionTypes"
+import { GET_WEATHER, INVALID_ZIP } from "./actionTypes"
 import endpoints from "../../endpoints/"
 
 export const getWeather = zip => {
@@ -8,10 +8,14 @@ export const getWeather = zip => {
         return response.json()
       })
       .then(function(json) {
-        dispatch({
-          type: GET_WEATHER,
-          payload: json
-        })
+        json.cod === "404"
+          ? dispatch({
+              type: INVALID_ZIP
+            })
+          : dispatch({
+              type: GET_WEATHER,
+              payload: json
+            })
       })
       .catch(function(error) {
         return {

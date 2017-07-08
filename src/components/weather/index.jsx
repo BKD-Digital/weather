@@ -1,8 +1,8 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
-
 import { getWeather } from "../../redux/actions"
 import DayResults from "./day-results"
+import { CSSTransitionGroup } from "react-transition-group"
 
 class Weather extends Component {
   constructor(props) {
@@ -19,25 +19,28 @@ class Weather extends Component {
       this.setState({
         zip: zipValue
       })
-
       this.props.dispatch(getWeather(zipValue))
     }
   }
-  render() {
-    const weatherCheck = this.props.weather.weather
 
+  componentDidUpdate(prevProps, prevState) {}
+
+  render() {
     return (
-      <section className="weather">
-        <input
-          className="weather__input"
-          placeholder="Please enter your zip code..."
-          ref={input => {
-            this.zipInput = input
-          }}
-          onKeyUp={this.requestWeather}
-        />
-        {typeof weatherCheck === "object"
-          ? <DayResults results={weatherCheck} />
+      <section className="weather-wrapper">
+        <div className="weather">
+          <input
+            className="weather__input"
+            placeholder="Enter your zip code..."
+            ref={input => {
+              this.zipInput = input
+            }}
+            onKeyUp={this.requestWeather}
+          />
+        </div>
+
+        {typeof this.props.weather.weather === "object"
+          ? <DayResults results={this.props.weather.weather} />
           : ""}
       </section>
     )
